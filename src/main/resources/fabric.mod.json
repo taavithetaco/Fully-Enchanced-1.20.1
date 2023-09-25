@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "fullyenchanced",
+	"version": "${version}",
+	"name": "Fully Enchanced",
+	"description": "This is an addon to the Enchancements mod by Moriya, made by Taavi",
+	"authors": [
+		"taavi"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/fullyenchanced/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.taavi.fullyenchanced.FullyEnchanced"
+		],
+		"client": [
+			"net.taavi.fullyenchanced.FullyEnchancedClient"
+		],
+		"fabric-datagen": [
+			"net.taavi.fullyenchanced.FullyEnchancedDataGenerator"
+		]
+	},
+	"mixins": [
+		"fullyenchanced.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.22",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
