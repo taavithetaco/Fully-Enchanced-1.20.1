@@ -13,22 +13,21 @@ import net.taavi.fullyenchanced.FullyEnchanced;
 
 public class ModBlocks {
 
-    public static final Block CLOUD_BLOCK = registerBlock("cloud_block",
-            new CloudBlock(FabricBlockSettings.create().replaceable().dropsNothing().luminance(state -> state.get(CloudBlock.TANGIBLE) ? 10 : 0).nonOpaque().allowsSpawning(Blocks::never).solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
+    public static final Block SOFT_CLOUD_BLOCK = registerBlock("soft_cloud_block",
+            new SoftCloudBlock(FabricBlockSettings.create().replaceable().noCollision().nonOpaque().allowsSpawning(Blocks::never).solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
+    public static final Block SOLID_CLOUD_BLOCK = registerBlock("solid_cloud_block",
+            new SolidCloudBlock(FabricBlockSettings.create().replaceable().dropsNothing().nonOpaque().allowsSpawning(Blocks::never).solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(FullyEnchanced.MOD_ID, name), block);
     }
 
-
     private static Item registerBlockItem(String name, Block block) {
         return Registry.register(Registries.ITEM, new Identifier(FullyEnchanced.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings()));
 
     }
-
-
 
     public static void registerModBlocks(){
         FullyEnchanced.LOGGER.info("Registering ModBlocks For " + FullyEnchanced.MOD_ID );

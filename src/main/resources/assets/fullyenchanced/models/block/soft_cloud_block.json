@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "fullyenchanced:block/cloud_block"
+    "all": "fullyenchanced:block/soft_cloud_block"
   }
 }

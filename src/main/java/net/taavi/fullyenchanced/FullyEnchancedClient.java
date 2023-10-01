@@ -8,7 +8,8 @@ import net.taavi.fullyenchanced.block.ModBlocks;
 public class FullyEnchancedClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CLOUD_BLOCK, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOFT_CLOUD_BLOCK, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOLID_CLOUD_BLOCK, RenderLayer.getTranslucent());
 
     }
 }

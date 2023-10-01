@@ -1,3 +1,6 @@
 {
-  "block.fullyenchanced.cloud_block": "Cloud Block"
+  "block.fullyenchanced.soft_cloud_block": "Soft Cloud Block",
+  "block.fullyenchanced.solid_cloud_block": "Solid Cloud Block",
+
+  "enchantment.fullyenchanced.cloud_walker": "Cloud Walker"
 }
