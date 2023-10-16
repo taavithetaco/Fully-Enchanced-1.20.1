@@ -2,5 +2,12 @@
   "block.fullyenchanced.soft_cloud_block": "Soft Cloud Block",
   "block.fullyenchanced.solid_cloud_block": "Solid Cloud Block",
 
-  "enchantment.fullyenchanced.cloud_walker": "Cloud Walker"
+  "enchantment.fullyenchanced.cloud_walker": "Cloud Walker",
+  "enchantment.fullyenchanced.rupture": "Rupture",
+
+  "item.fullyenchanced.wooden_scythe": "Wooden Scythe",
+  "item.fullyenchanced.stone_scythe": "Stone Scythe",
+  "item.fullyenchanced.iron_scythe": "Iron Scythe",
+  "item.fullyenchanced.diamond_scythe": "Diamond Scythe",
+  "item.fullyenchanced.netherite_scythe": "Netherite Scythe"
 }

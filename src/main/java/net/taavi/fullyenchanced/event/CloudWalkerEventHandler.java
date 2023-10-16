@@ -18,7 +18,7 @@ public class CloudWalkerEventHandler {
                 if (hasCloudWalkerEnchantment(player)) {
                     handleCloudWalker(player);
                 } else {
-                    solidToCloud(player);
+                    solidToSoft(player);
                 }
             }
         });
@@ -34,7 +34,6 @@ public class CloudWalkerEventHandler {
         BlockPos playerPos = player.getBlockPos().down();
 
         if (player.isSneaking()) {
-            // If the block below the player is air, place a SoftCloudBlock
             if (world.isAir(playerPos)) {
                 world.setBlockState(playerPos, ModBlocks.SOFT_CLOUD_BLOCK.getDefaultState());
             }
@@ -66,7 +65,7 @@ public class CloudWalkerEventHandler {
             }
         }
     }
-    private static void solidToCloud(PlayerEntity player) {
+    private static void solidToSoft(PlayerEntity player) {
         World world = player.getWorld();
         BlockPos playerPos = player.getBlockPos().down();
 

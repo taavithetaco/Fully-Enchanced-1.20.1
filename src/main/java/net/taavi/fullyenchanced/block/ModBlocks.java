@@ -7,6 +7,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.taavi.fullyenchanced.FullyEnchanced;
 
@@ -14,9 +15,9 @@ import net.taavi.fullyenchanced.FullyEnchanced;
 public class ModBlocks {
 
     public static final Block SOFT_CLOUD_BLOCK = registerBlock("soft_cloud_block",
-            new SoftCloudBlock(FabricBlockSettings.create().replaceable().noCollision().nonOpaque().allowsSpawning(Blocks::never).solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
+            new SoftCloudBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOL).replaceable().noCollision().dropsNothing().nonOpaque().ticksRandomly().suffocates(Blocks::never)));
     public static final Block SOLID_CLOUD_BLOCK = registerBlock("solid_cloud_block",
-            new SolidCloudBlock(FabricBlockSettings.create().replaceable().dropsNothing().nonOpaque().allowsSpawning(Blocks::never).solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
+            new SolidCloudBlock(FabricBlockSettings.create().sounds(BlockSoundGroup.WOOL).replaceable().dropsNothing().nonOpaque().ticksRandomly().suffocates(Blocks::never)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
