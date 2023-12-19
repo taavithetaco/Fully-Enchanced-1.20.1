@@ -23,18 +23,13 @@ public class PotionItemMixin {
      * @return
      */
 
-    @ModifyConstant(method = "use",constant = @Constant(floatValue = .5f))
-    private float modifyThrowDistance(float old) {
-        return 1f;
-    }
-
     @Overwrite
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient) {
             PotionEntity potionEntity = new PotionEntity(world, user);
             potionEntity.setItem(itemStack);
-            potionEntity.setVelocity(user, user.getPitch(), user.getYaw(), -20.0f, 0.5f, 1.0f);
+            potionEntity.setVelocity(user, user.getPitch(), user.getYaw(), -20.0f, FullyEnchanced.CONFIG.potion_throw_velocity, 1.0f);
             world.spawnEntity(potionEntity);
             user.getItemCooldownManager().set(itemStack.getItem(), FullyEnchanced.CONFIG.potion_throw_cooldown);
         }

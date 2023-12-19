@@ -7,7 +7,7 @@
 		"ItemStackSize",
 		"PotionDrinkTime",
 		"PotionItemMixin",
-
+		"TridentItemMixin",
 	],
 	"client": ["RemoveShieldDelay"],
 	"server": [],

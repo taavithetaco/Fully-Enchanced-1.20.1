@@ -5,10 +5,10 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
-import net.taavi.fullyenchanced.block.ModBlocks;
+import net.taavi.fullyenchanced.init.ModBlocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
-import net.taavi.fullyenchanced.enchantment.ModEnchantments;
+import net.taavi.fullyenchanced.init.ModEnchantments;
 
 
 public class CloudWalkerEventHandler {

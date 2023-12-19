@@ -1,15 +1,16 @@
-package net.taavi.fullyenchanced.item;
+package net.taavi.fullyenchanced.init;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.taavi.fullyenchanced.FullyEnchanced;
+import net.taavi.fullyenchanced.item.BoomerangItem;
+import net.taavi.fullyenchanced.item.NewEnchantedBookItem;
+import net.taavi.fullyenchanced.item.ScytheItem;
 
 public class ModItems {
 
@@ -23,6 +24,14 @@ public class ModItems {
             new ScytheItem(ToolMaterials.DIAMOND, 8, -2.8f, new FabricItemSettings()));
     public static final Item NETHERITE_SCYTHE = registerItem("netherite_scythe",
             new ScytheItem(ToolMaterials.NETHERITE, 9, -2.8f, new FabricItemSettings()));
+    public static final Item WOODEN_BOOMERANG = registerItem("wooden_boomerang",
+            new BoomerangItem(ToolMaterials.WOOD, new FabricItemSettings()));
+    public static final Item STONE_BOOMERANG = registerItem("stone_boomerang",
+            new BoomerangItem(ToolMaterials.STONE, new FabricItemSettings()));
+    public static final Item NEW_ENCHANTED_BOOK = registerItem("new_enchanted_book",
+            new NewEnchantedBookItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
+
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(FullyEnchanced.MOD_ID, name), item);

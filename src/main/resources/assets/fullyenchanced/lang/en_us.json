@@ -4,10 +4,27 @@
 
   "enchantment.fullyenchanced.cloud_walker": "Cloud Walker",
   "enchantment.fullyenchanced.rupture": "Rupture",
+  "enchantment.fullyenchanced.chamber": "Chamber",
 
   "item.fullyenchanced.wooden_scythe": "Wooden Scythe",
   "item.fullyenchanced.stone_scythe": "Stone Scythe",
   "item.fullyenchanced.iron_scythe": "Iron Scythe",
   "item.fullyenchanced.diamond_scythe": "Diamond Scythe",
-  "item.fullyenchanced.netherite_scythe": "Netherite Scythe"
+  "item.fullyenchanced.netherite_scythe": "Netherite Scythe",
+
+  "item.fullyenchanced.wooden_boomerang": "Wooden Boomerang",
+  "item.fullyenchanced.stone_boomerang": "Stone Boomerang",
+  "item.fullyenchanced.iron_boomerang": "Iron Boomerang",
+  "item.fullyenchanced.diamond_boomerang": "Diamond Boomerang",
+  "item.fullyenchanced.netherite_boomerang": "NetheriteBoomerang",
+
+  "item.fullyenchanced.new_enchanted_book": "New Enchanted Book",
+
+  "effect.fullyenchanced.milk": "Milk",
+
+  "item.minecraft.potion.effect.milk_bottle": "Milk Bottle",
+  "item.minecraft.splash_potion.effect.milk_bottle": "Splash Milk Bottle",
+  "item.minecraft.lingering_potion.effect.milk_bottle": "Milk Bottle"
+
+
 }

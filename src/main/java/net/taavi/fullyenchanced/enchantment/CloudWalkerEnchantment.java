@@ -19,9 +19,4 @@ public class CloudWalkerEnchantment extends Enchantment {
         return 1;
     }
 
-    @Override
-    public int getMaxLevel() {
-        return 1;
-    }
-
 }

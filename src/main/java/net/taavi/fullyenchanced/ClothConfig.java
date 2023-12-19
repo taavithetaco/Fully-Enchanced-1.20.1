@@ -13,6 +13,7 @@ public class ClothConfig implements ConfigData {
     public int splash_potion_stack_size = 16;
     public int lingering_potion_stack_size = 16;
 
-    public int potion_throw_cooldown = 30;
+    public int potion_throw_cooldown = 10;
+    public float potion_throw_velocity = .9f;
 
 }

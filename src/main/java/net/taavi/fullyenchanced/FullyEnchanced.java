@@ -4,14 +4,18 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Items;
-import net.taavi.fullyenchanced.block.ModBlocks;
-import net.taavi.fullyenchanced.enchantment.ModEnchantments;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
+import net.taavi.fullyenchanced.init.*;
 import net.taavi.fullyenchanced.event.CloudWalkerEventHandler;
 import net.taavi.fullyenchanced.event.RuptureEventHandler;
-import net.taavi.fullyenchanced.item.ModItems;
 import net.taavi.fullyenchanced.util.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Set;
+
+import static net.taavi.fullyenchanced.init.ModItems.NEW_ENCHANTED_BOOK;
 
 public class FullyEnchanced implements ModInitializer {
 	public static final String MOD_ID = "fullyenchanced";
@@ -30,6 +34,13 @@ public class FullyEnchanced implements ModInitializer {
 		RuptureEventHandler.registerEvents();
 
 		ModEnchantments.registerModEnchantments();
+
+		ModPotions.registerPotion();
+		ModEffects.registerEffects();
+
+		ModParticles.registerParticles();
+
+
 
 
 

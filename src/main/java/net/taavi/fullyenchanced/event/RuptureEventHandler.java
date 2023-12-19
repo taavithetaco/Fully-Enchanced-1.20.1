@@ -14,7 +14,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
-import net.taavi.fullyenchanced.enchantment.ModEnchantments;
+import net.taavi.fullyenchanced.init.ModEnchantments;
 
 public class RuptureEventHandler {
 

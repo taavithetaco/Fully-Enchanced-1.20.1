@@ -17,6 +17,6 @@ public class SoftCloudBlock extends AbstractCloudBlock {
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        entity.slowMovement(state, new Vec3d(0.9f, 0.9, 0.9f));
+        entity.slowMovement(state, new Vec3d(0.98f, 0.98f, 0.98f));
     }
 }

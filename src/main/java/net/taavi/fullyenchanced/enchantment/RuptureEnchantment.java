@@ -8,10 +8,6 @@ public class RuptureEnchantment extends Enchantment{
     public RuptureEnchantment(Enchantment.Rarity rarity, EquipmentSlot... slots) {
         super(rarity, EnchantmentTarget.DIGGER, slots);
     }
-    @Override
-    public int getMaxLevel() {
-        return 1;
-    }
 
     @Override
     public int getMinPower(int level) {
