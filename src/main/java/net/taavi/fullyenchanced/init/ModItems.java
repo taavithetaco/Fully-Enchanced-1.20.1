@@ -8,9 +8,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.taavi.fullyenchanced.FullyEnchanced;
-import net.taavi.fullyenchanced.item.BoomerangItem;
-import net.taavi.fullyenchanced.item.NewEnchantedBookItem;
-import net.taavi.fullyenchanced.item.ScytheItem;
+import net.taavi.fullyenchanced.item.*;
 
 public class ModItems {
 
@@ -29,7 +27,13 @@ public class ModItems {
     public static final Item STONE_BOOMERANG = registerItem("stone_boomerang",
             new BoomerangItem(ToolMaterials.STONE, new FabricItemSettings()));
     public static final Item NEW_ENCHANTED_BOOK = registerItem("new_enchanted_book",
-            new NewEnchantedBookItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
+            new NewEnchantedBookItem(new FabricItemSettings().maxCount(1)));
+    public static final Item MILK_BOTTLE = registerItem("milk_bottle",
+            new MilkBottleItem(new FabricItemSettings()));
+    public static final Item SPLASH_MILK_BOTTLE = registerItem("splash_milk_bottle",
+            new SplashMilkBottleItem(new FabricItemSettings()));
+    public static final Item BUCKLER = registerItem("buckler",
+            new BucklerItem(new FabricItemSettings()));
 
 
 

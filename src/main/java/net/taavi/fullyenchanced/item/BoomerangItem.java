@@ -1,6 +1,5 @@
 package net.taavi.fullyenchanced.item;
 
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolItem;
@@ -35,6 +34,7 @@ public class BoomerangItem extends ToolItem {
             BoomerangEntity boomerangEntity = new BoomerangEntity(world, user, itemstack);
             boomerangEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 2F, 0.0F);
             world.spawnEntity(boomerangEntity);
+
         }
 
         user.incrementStat(Stats.USED.getOrCreateStat(this));

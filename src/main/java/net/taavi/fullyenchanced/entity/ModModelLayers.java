@@ -7,4 +7,5 @@ import net.taavi.fullyenchanced.FullyEnchanced;
 public class ModModelLayers {
     public static final EntityModelLayer BOOMERANG =
             new EntityModelLayer(new Identifier(FullyEnchanced.MOD_ID, "boomerang_entity"), "main");
+
 }

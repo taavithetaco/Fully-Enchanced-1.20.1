@@ -5,8 +5,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.text.Text;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
@@ -14,6 +16,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
+import net.minecraft.world.tick.BasicTickScheduler;
 import net.taavi.fullyenchanced.init.ModEnchantments;
 
 public class RuptureEventHandler {
@@ -31,13 +34,14 @@ public class RuptureEventHandler {
         if (world instanceof ServerWorld) {
             Direction direction;
             double reach = 6.0;
-            Vec3d playerPos = player.getEyePos();
+            MinecraftServer server = world.getServer();
+            long currentTick = server.getTicks();
+            Vec3d playerPos = player.getPos();
             Vec3d endPos = playerPos.add(player.getRotationVector().multiply(reach));
-            HitResult result = world.raycast(new RaycastContext(playerPos, endPos, RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, player));
+            BlockHitResult result = world.raycast(new RaycastContext(playerPos, endPos, RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.NONE, player));
 
             if (result.getType() == HitResult.Type.BLOCK) {
-                BlockHitResult blockResult = (BlockHitResult) result;
-                direction = blockResult.getSide();
+                direction = result.getSide();
 
                 for (int i = -1; i <= 1; i++) {
                     for (int j = -1; j <= 1; j++) {
@@ -45,14 +49,13 @@ public class RuptureEventHandler {
                         BlockState targetState = world.getBlockState(targetPos);
                         if (targetState.isIn(BlockTags.PICKAXE_MINEABLE)) {
                             world.breakBlock(targetPos, true, player);
+                            player.sendMessage(Text.of(String.valueOf(direction)), true);
                         }
                     }
                 }
             }
         }
     }
-
-
 
     private static BlockPos calculateTargetPos(BlockPos pos, Direction sideHit, int offsetX, int offsetY) {
         int x = pos.getX(), y = pos.getY(), z = pos.getZ();

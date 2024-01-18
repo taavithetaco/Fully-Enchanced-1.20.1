@@ -5,9 +5,12 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"ItemStackSize",
-		"PotionDrinkTime",
+		"ThrowablePotionItemMixin",
 		"PotionItemMixin",
 		"TridentItemMixin",
+		"CrossbowItemMixin",
+		"WitherSkeletonEntityMixin",
+		"EnchantedBookItemMixin",
 	],
 	"client": ["RemoveShieldDelay"],
 	"server": [],

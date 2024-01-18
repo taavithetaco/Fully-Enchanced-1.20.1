@@ -29,8 +29,7 @@ public class BoomerangEntityRenderer extends EntityRenderer<BoomerangEntity> {
     public void render(BoomerangEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
         matrices.push();
         if (entity.getOwner() != null) { // Check if the boomerang has an owner (player)
-            float headPitch = entity.getOwner().getPitch(tickDelta);
-            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) + (entity.age*10)));
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) - 90));
             matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch())));
             matrices.translate(0.0f, -1.4f, 0.0f);
             VertexConsumer vertexconsumer = ItemRenderer.getDirectItemGlintConsumer(vertexConsumers, this.model.getLayer(TEXTURE), false, false);

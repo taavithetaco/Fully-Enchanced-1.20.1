@@ -13,16 +13,16 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.BlockRotation;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.taavi.fullyenchanced.init.ModEntities;
 import net.taavi.fullyenchanced.init.ModItems;
+import net.taavi.fullyenchanced.init.ModSounds;
 
 public class BoomerangEntity extends PersistentProjectileEntity {
     private static final TrackedData<Boolean> HIT =
@@ -32,20 +32,14 @@ public class BoomerangEntity extends PersistentProjectileEntity {
     public int returnTimer;
     private static final TrackedData<Boolean> ENCHANTED = DataTracker.registerData(BoomerangEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationTimeout = 0;
+
+    public AnimationState getIdleAnimationState() {
+        return idleAnimationState;
+    }
 
 
     public BoomerangEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
         super(entityType, world);
-    }
-
-    private void setupAnimationStates() {
-        if (this.idleAnimationTimeout <= 0) {
-            this.idleAnimationTimeout = this.random.nextInt(40) + 80;
-            this.idleAnimationState.start(this.age);
-        } else {
-            --this.idleAnimationTimeout;
-        }
     }
 
     public BoomerangEntity(World world, LivingEntity user, ItemStack stack) {
@@ -62,9 +56,6 @@ public class BoomerangEntity extends PersistentProjectileEntity {
 
     @Override
     public void tick() {
-        if (this.getWorld().isClient()) {
-            this.setupAnimationStates();
-        }
         if (this.inGroundTime > 0 || this.age>=40) {
             this.dealtDamage = true;
         }
@@ -87,8 +78,9 @@ public class BoomerangEntity extends PersistentProjectileEntity {
         this.setNoClip(true);
         Vec3d vec3d = entity.getEyePos().subtract(this.getPos());
         this.setPos(this.getX(), this.getY(), this.getZ());
-        this.setVelocity(this.getVelocity().add(vec3d.normalize().multiply(1.55)));
+        this.setVelocity(this.getVelocity().add(vec3d.normalize().multiply(1.4)));
         ++this.returnTimer;
+        this.getWorld().playSound(null, this.getBlockPos(), ModSounds.BOOMERANG_FLYING, SoundCategory.NEUTRAL, 1f, 1f);
     }
 
     private boolean isOwnerAlive() {

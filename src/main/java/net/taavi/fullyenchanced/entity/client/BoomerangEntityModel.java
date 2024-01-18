@@ -33,6 +33,7 @@ public class BoomerangEntityModel<T extends BoomerangEntity> extends SinglePartE
 				,ModelTransform.pivot(0.0F, 24.0F, 0.0F));
 		return TexturedModelData.of(modelData, 32, 32);
 	}
+
 	@Override
 	public void setAngles(BoomerangEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.updateAnimation(entity.idleAnimationState, BoomerangAnimations.SPINNING, ageInTicks, 1f);

@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public abstract class AbstractCloudBlock extends Block {
-    public static final int MAX_DISTANCE = 2;
 
     public AbstractCloudBlock(FabricBlockSettings settings) {
         super(settings);
@@ -22,30 +21,14 @@ public abstract class AbstractCloudBlock extends Block {
 
     @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (shouldRemove(world, pos)) {
-            world.breakBlock(pos, false);
-        }
+        world.breakBlock(pos, false);
     }
 
     @Override
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         super.onBlockAdded(state, world, pos, oldState, notify);
-            world.scheduleBlockTick(pos, this, 5*20);
+            world.scheduleBlockTick(pos, this, 3*20);
 
-    }
-
-    private boolean shouldRemove(ServerWorld serverWorld, BlockPos pos) {
-        if (!serverWorld.isClient()) {
-            List<? extends PlayerEntity> players = serverWorld.getPlayers();
-            for (PlayerEntity player : players) {
-                double distanceSquared = pos.getSquaredDistance(player.getX(), player.getY(), player.getZ());
-                if (distanceSquared <= MAX_DISTANCE * MAX_DISTANCE) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
     }
 
     @Override

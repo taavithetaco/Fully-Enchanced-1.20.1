@@ -7,9 +7,6 @@ import net.minecraft.client.render.entity.animation.Transformation;
 
 public class BoomerangAnimations {
 
-
-
-
     public static final Animation SPINNING = Animation.Builder.create(1f).looping()
             .addBoneAnimation("boomerang_entity",
                     new Transformation(Transformation.Targets.ROTATE,

@@ -13,6 +13,7 @@ import net.taavi.fullyenchanced.init.ModEnchantments;
 
 public class CloudWalkerEventHandler {
     public static void registerEvents() {
+        int cloudMeter=0;
         ServerTickEvents.START_SERVER_TICK.register(server -> {
             for (PlayerEntity player : server.getPlayerManager().getPlayerList()) {
                 if (hasCloudWalkerEnchantment(player)) {
@@ -24,6 +25,7 @@ public class CloudWalkerEventHandler {
         });
     }
 
+
     private static boolean hasCloudWalkerEnchantment(PlayerEntity player) {
         ItemStack leggings = player.getEquippedStack(EquipmentSlot.LEGS);
         return EnchantmentHelper.getLevel(ModEnchantments.CLOUD_WALKER, leggings) > 0;
@@ -32,7 +34,6 @@ public class CloudWalkerEventHandler {
     private static void handleCloudWalker(PlayerEntity player) {
         World world = player.getWorld();
         BlockPos playerPos = player.getBlockPos().down();
-
         if (player.isSneaking()) {
             if (world.isAir(playerPos)) {
                 world.setBlockState(playerPos, ModBlocks.SOFT_CLOUD_BLOCK.getDefaultState());
@@ -51,25 +52,15 @@ public class CloudWalkerEventHandler {
                 }
             }
         } else {
-            int radius = 3;
-            BlockPos.Mutable mutablePos = new BlockPos.Mutable();
-            for (int x = -radius; x <= radius; x++) {
-                for (int y = -radius; y <= radius; y++) {
-                    for (int z = -radius; z <= radius; z++) {
-                        mutablePos.set(playerPos).move(x, y, z);
-                        if (world.getBlockState(mutablePos).isOf(ModBlocks.SOLID_CLOUD_BLOCK)) {
-                            world.setBlockState(mutablePos, ModBlocks.SOFT_CLOUD_BLOCK.getDefaultState());
-                        }
-                    }
-                }
-            }
+            solidToSoft(player);
         }
-    }
+        }
+
     private static void solidToSoft(PlayerEntity player) {
         World world = player.getWorld();
         BlockPos playerPos = player.getBlockPos().down();
 
-        if (!player.isSneaking()) {
+        if (!player.isSneaking()||!hasCloudWalkerEnchantment(player)) {
             int radius = 3;
             BlockPos.Mutable mutablePos = new BlockPos.Mutable();
             for (int x = -radius; x <= radius; x++) {

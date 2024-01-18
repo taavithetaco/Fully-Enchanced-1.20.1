@@ -16,15 +16,14 @@
   "item.fullyenchanced.stone_boomerang": "Stone Boomerang",
   "item.fullyenchanced.iron_boomerang": "Iron Boomerang",
   "item.fullyenchanced.diamond_boomerang": "Diamond Boomerang",
-  "item.fullyenchanced.netherite_boomerang": "NetheriteBoomerang",
+  "item.fullyenchanced.netherite_boomerang": "Netherite Boomerang",
+
+  "item.fullyenchanced.buckler": "Buckler",
 
   "item.fullyenchanced.new_enchanted_book": "New Enchanted Book",
+  "item.fullyenchanced.milk_bottle.effect.empty": "Milk Bottle",
+  "item.fullyenchanced.splash_milk_bottle.effect.empty": "Splash Milk Bottle",
 
-  "effect.fullyenchanced.milk": "Milk",
-
-  "item.minecraft.potion.effect.milk_bottle": "Milk Bottle",
-  "item.minecraft.splash_potion.effect.milk_bottle": "Splash Milk Bottle",
-  "item.minecraft.lingering_potion.effect.milk_bottle": "Milk Bottle"
-
+  "sounds.fullyenchanced.boomerang_flying": "Boomerang Whirls"
 
 }
