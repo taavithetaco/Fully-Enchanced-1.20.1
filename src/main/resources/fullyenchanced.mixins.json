@@ -7,12 +7,13 @@
 		"ItemStackSize",
 		"ThrowablePotionItemMixin",
 		"PotionItemMixin",
-		"TridentItemMixin",
 		"CrossbowItemMixin",
 		"WitherSkeletonEntityMixin",
-		"EnchantedBookItemMixin",
+		"EnchantedBookItemMixin"
 	],
-	"client": ["RemoveShieldDelay"],
+	"client": [
+		"RemoveShieldDelay"
+		],
 	"server": [],
 	"injectors": {
 		"defaultRequire": 1

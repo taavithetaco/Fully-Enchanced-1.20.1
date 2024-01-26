@@ -42,7 +42,9 @@ public class ScytheItem
 
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
-        world.setBlockState(pos, state.getBlock().getDefaultState());
+        if (state.isIn(ModTags.Blocks.SCYTHE_HARVESTABLE)){
+            world.setBlockState(pos, state.getBlock().getDefaultState());
+        }
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
@@ -50,9 +52,13 @@ public class ScytheItem
             for (int j = -1; j <= 1; j++) {
                 BlockPos targetPos = new BlockPos(x + i, y, z + j);
                 BlockState targetState = world.getBlockState(targetPos);
-                if (targetState.isIn(ModTags.Blocks.SCYTHABLE_BLOCKS)){
+
+                if (targetState.isIn(ModTags.Blocks.SCYTHE_BREAKABLE)){
                     world.breakBlock(targetPos, true, miner);
-                    world.setBlockState(targetPos, targetState.getBlock().getDefaultState());
+
+                    if (targetState.isIn(ModTags.Blocks.SCYTHE_HARVESTABLE)){
+                        world.setBlockState(targetPos, targetState.getBlock().getDefaultState());
+                    }
                 }
                 if (state.getHardness(world, pos) != 0.0f) {
                     stack.damage(1, miner, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));

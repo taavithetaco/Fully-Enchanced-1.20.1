@@ -2,17 +2,15 @@ package net.taavi.fullyenchanced.entity.client;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
-import net.taavi.fullyenchanced.entity.BoomerangEntity;
+import net.taavi.fullyenchanced.entity.WoodenBoomerangEntity;
 import net.taavi.fullyenchanced.entity.animations.BoomerangAnimations;
 
 // Made with Blockbench 4.8.3
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class BoomerangEntityModel<T extends BoomerangEntity> extends SinglePartEntityModel<T> {
+public class BoomerangEntityModel<T extends WoodenBoomerangEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart boomerang_entity;
 	public BoomerangEntityModel(ModelPart root) {
 		this.boomerang_entity = root.getChild("boomerang_entity");
@@ -35,7 +33,7 @@ public class BoomerangEntityModel<T extends BoomerangEntity> extends SinglePartE
 	}
 
 	@Override
-	public void setAngles(BoomerangEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setAngles(WoodenBoomerangEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.updateAnimation(entity.idleAnimationState, BoomerangAnimations.SPINNING, ageInTicks, 1f);
 	}
 	@Override

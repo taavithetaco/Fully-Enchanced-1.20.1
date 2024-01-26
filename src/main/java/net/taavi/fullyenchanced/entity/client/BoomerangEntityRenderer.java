@@ -2,7 +2,7 @@ package net.taavi.fullyenchanced.entity.client;
 
 
 import net.taavi.fullyenchanced.FullyEnchanced;
-import net.taavi.fullyenchanced.entity.BoomerangEntity;
+import net.taavi.fullyenchanced.entity.WoodenBoomerangEntity;
 import net.taavi.fullyenchanced.entity.ModModelLayers;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
 
-public class BoomerangEntityRenderer extends EntityRenderer<BoomerangEntity> {
+public class BoomerangEntityRenderer extends EntityRenderer<WoodenBoomerangEntity> {
     public static final Identifier TEXTURE = new Identifier(FullyEnchanced.MOD_ID, "textures/entity/wooden_boomerang.png");
     protected BoomerangEntityModel model;
 
@@ -26,7 +26,7 @@ public class BoomerangEntityRenderer extends EntityRenderer<BoomerangEntity> {
     }
 
     @Override
-    public void render(BoomerangEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+    public void render(WoodenBoomerangEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
         matrices.push();
         if (entity.getOwner() != null) { // Check if the boomerang has an owner (player)
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) - 90));
@@ -40,7 +40,7 @@ public class BoomerangEntityRenderer extends EntityRenderer<BoomerangEntity> {
     }
 
     @Override
-    public Identifier getTexture(BoomerangEntity entity) {
+    public Identifier getTexture(WoodenBoomerangEntity entity) {
         return TEXTURE;
     }
 }

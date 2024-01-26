@@ -1,29 +1,32 @@
 package net.taavi.fullyenchanced.mixin;
 
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.client.sound.SoundEntry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(EnchantedBookItem.class)
-public abstract class EnchantedBookItemMixin {
-
-//    @Inject(method = "finishUsing", at = @At("HEAD"))
-//    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-//        if (user instanceof PlayerEntity) {
-//            stack.decrement(1);
-//        }
-//        return stack;
-//    }
-//    @Inject(method = "getMaxUseTime", at = @At("HEAD"))
-//    public int getMaxUseTime(ItemStack stack) {
-//        return 20;
-//    }
+public class EnchantedBookItemMixin extends Item {
+    public EnchantedBookItemMixin(Settings settings) {
+        super(settings);
+    }
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        ItemStack itemStack = user.getStackInHand(hand);
+        user.setStackInHand(hand, Items.BOOK.getDefaultStack());
+        user.sendMessage(Text.of("Knowledge has been unsealed."), true);
+        user.playSound(SoundEvents.ITEM_BOOK_PAGE_TURN,3,1);
+        user.playSound(SoundEvents.ENTITY_EVOKER_PREPARE_SUMMON,1,1);
+        return TypedActionResult.success(itemStack);
+    }
 }
 

@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -24,13 +25,13 @@ import net.taavi.fullyenchanced.init.ModEntities;
 import net.taavi.fullyenchanced.init.ModItems;
 import net.taavi.fullyenchanced.init.ModSounds;
 
-public class BoomerangEntity extends PersistentProjectileEntity {
+public class WoodenBoomerangEntity extends PersistentProjectileEntity {
     private static final TrackedData<Boolean> HIT =
-            DataTracker.registerData(BoomerangEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+            DataTracker.registerData(WoodenBoomerangEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private ItemStack boomerangStack = new ItemStack(ModItems.WOODEN_BOOMERANG);
     private boolean dealtDamage;
     public int returnTimer;
-    private static final TrackedData<Boolean> ENCHANTED = DataTracker.registerData(BoomerangEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Boolean> ENCHANTED = DataTracker.registerData(WoodenBoomerangEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public final AnimationState idleAnimationState = new AnimationState();
 
     public AnimationState getIdleAnimationState() {
@@ -38,11 +39,11 @@ public class BoomerangEntity extends PersistentProjectileEntity {
     }
 
 
-    public BoomerangEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
+    public WoodenBoomerangEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public BoomerangEntity(World world, LivingEntity user, ItemStack stack) {
+    public WoodenBoomerangEntity(World world, LivingEntity user, ItemStack stack) {
         super(ModEntities.BOOMERANG, world);
         this.boomerangStack = stack.copy();
         setOwner(user);
@@ -100,7 +101,7 @@ public class BoomerangEntity extends PersistentProjectileEntity {
             f += EnchantmentHelper.getAttackDamage(this.boomerangStack, livingEntity.getGroup());
         }
         Entity entity2 = this.getOwner();
-        DamageSource damageSource = this.getDamageSources().trident(this, entity2 == null ? this : entity2);
+        DamageSource damageSource = this.getDamageSources().create(DamageTypes.THROWN, this, this.getOwner());
         this.dealtDamage = true;
         SoundEvent soundEvent = SoundEvents.ENTITY_ARMOR_STAND_HIT;
         if (entity.damage(damageSource, f)) {

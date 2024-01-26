@@ -31,6 +31,7 @@ public class FullyEnchanced implements ModInitializer {
 
 		ModParticles.registerParticles();
 		ModSounds.registerSounds();
+		ModLootTableModifiers.modifyLootTables();
 
 
 

@@ -9,7 +9,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
-import net.taavi.fullyenchanced.entity.BoomerangEntity;
+import net.taavi.fullyenchanced.entity.WoodenBoomerangEntity;
 
 public class BoomerangItem extends ToolItem {
     public BoomerangItem(ToolMaterial material, Settings settings) {
@@ -31,7 +31,7 @@ public class BoomerangItem extends ToolItem {
         ItemStack itemstack = user.getStackInHand(hand);
 
         if (!world.isClient()) {
-            BoomerangEntity boomerangEntity = new BoomerangEntity(world, user, itemstack);
+            WoodenBoomerangEntity boomerangEntity = new WoodenBoomerangEntity(world, user, itemstack);
             boomerangEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 2F, 0.0F);
             world.spawnEntity(boomerangEntity);
 

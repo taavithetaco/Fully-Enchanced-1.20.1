@@ -2,6 +2,7 @@ package net.taavi.fullyenchanced.init;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
+import net.minecraft.item.ShieldItem;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -13,15 +14,18 @@ import net.taavi.fullyenchanced.item.*;
 public class ModItems {
 
     public static final Item WOODEN_SCYTHE = registerItem("wooden_scythe",
-            new ScytheItem(ToolMaterials.WOOD, 5, -2.4f, new FabricItemSettings()));
+            new ScytheItem(ToolMaterials.WOOD, 4, -2.4f, new FabricItemSettings()));
     public static final Item STONE_SCYTHE = registerItem("stone_scythe",
-            new ScytheItem(ToolMaterials.STONE, 6, -2.4f, new FabricItemSettings()));
+            new ScytheItem(ToolMaterials.STONE, 4, -2.4f, new FabricItemSettings()));
     public static final Item IRON_SCYTHE = registerItem("iron_scythe",
-            new ScytheItem(ToolMaterials.IRON, 7, -2.7f, new FabricItemSettings()));
+            new ScytheItem(ToolMaterials.IRON, 4, -2.7f, new FabricItemSettings()));
+    public static final Item GOLDEN_SCYTHE = registerItem("golden_scythe",
+            new ScytheItem(ToolMaterials.IRON, 4, -2.7f, new FabricItemSettings()));
     public static final Item DIAMOND_SCYTHE = registerItem("diamond_scythe",
-            new ScytheItem(ToolMaterials.DIAMOND, 8, -2.8f, new FabricItemSettings()));
+            new ScytheItem(ToolMaterials.DIAMOND, 4, -2.8f, new FabricItemSettings()));
     public static final Item NETHERITE_SCYTHE = registerItem("netherite_scythe",
-            new ScytheItem(ToolMaterials.NETHERITE, 9, -2.8f, new FabricItemSettings()));
+            new ScytheItem(ToolMaterials.NETHERITE, 4, -2.8f, new FabricItemSettings()));
+
     public static final Item WOODEN_BOOMERANG = registerItem("wooden_boomerang",
             new BoomerangItem(ToolMaterials.WOOD, new FabricItemSettings()));
     public static final Item STONE_BOOMERANG = registerItem("stone_boomerang",

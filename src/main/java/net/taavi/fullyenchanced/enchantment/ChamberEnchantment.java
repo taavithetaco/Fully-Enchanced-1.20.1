@@ -17,6 +17,7 @@ import net.minecraft.nbt.NbtString;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.nbt.NbtCompound;
+import net.taavi.fullyenchanced.FullyEnchanced;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
@@ -51,6 +52,7 @@ public class ChamberEnchantment extends Enchantment {
 
             // Replace the old crossbow in the player's main hand with the new one
             player.setStackInHand(Hand.MAIN_HAND, newCrossbow);
+            player.getItemCooldownManager().set(newCrossbow.getItem(), 0);
         }
     }
 

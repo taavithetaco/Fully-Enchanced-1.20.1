@@ -14,7 +14,8 @@ import net.taavi.fullyenchanced.enchantment.RuptureEnchantment;
 public class ModEnchantments {
     public static final Enchantment CLOUD_WALKER = register("cloud_walker", new CloudWalkerEnchantment(Enchantment.Rarity.COMMON, EquipmentSlot.LEGS));
     public static final Enchantment RUPTURE = register("rupture", new RuptureEnchantment(Enchantment.Rarity.COMMON, EquipmentSlot.MAINHAND));
-    public static final Enchantment CHAMBER = register("chamber", new ChamberEnchantment(Enchantment.Rarity.COMMON, EquipmentSlot.MAINHAND));
+    public static final Enchantment CHAMBER = register("chamber", new ChamberEnchantment(Enchantment.Rarity.COMMON, EquipmentSlot.OFFHAND, EquipmentSlot.MAINHAND));
+    public static final Enchantment SLAP = register("slap", new ChamberEnchantment(Enchantment.Rarity.COMMON, EquipmentSlot.MAINHAND));
 
 
     public static Enchantment register(String name, Enchantment enchantment) {

@@ -17,6 +17,7 @@ public class ModItemGroup {
                         entries.add(ModItems.WOODEN_SCYTHE);
                         entries.add(ModItems.STONE_SCYTHE);
                         entries.add(ModItems.IRON_SCYTHE);
+                        entries.add(ModItems.GOLDEN_SCYTHE);
                         entries.add(ModItems.DIAMOND_SCYTHE);
                         entries.add(ModItems.NETHERITE_SCYTHE);
 

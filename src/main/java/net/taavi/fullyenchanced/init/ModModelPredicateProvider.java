@@ -11,6 +11,6 @@ public class ModModelPredicateProvider {
     public static void registerModModels() {
         ModelPredicateProviderRegistry.register(ModItems.BUCKLER, new Identifier("blocking"),
                 (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0f : 0.0f);
-    }
+         }
 }
 
